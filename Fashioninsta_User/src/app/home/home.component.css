@@ -1,0 +1,12 @@
+.marge {
+  margin-top: 1%
+}
+
+.main {
+  background-color: rgb(197, 176, 56);
+  display: inline;
+  
+  color: rgb(209, 124, 124);
+  top:0; left:0;
+  z-index:-1; 
+}

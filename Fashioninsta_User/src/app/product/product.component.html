@@ -1,0 +1,35 @@
+<div class="container">
+<h3>Product List</h3>
+<form [formGroup]="search">
+    <div class="form-group col-lg-6">
+        <select class="selectpicker dropdown form-control" (change)="searchByCompanyName($event.target.value)" formControlName="company"
+            data-live-search="true">
+            <option *ngFor="let company of companies" [value]="company._id">{{company.name}}</option>
+        </select>
+    </div>
+</form>
+<table border="1">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Photo</th>
+            <th>Buy</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let product of products;let rowIndex=index">
+        <td>{{rowIndex+1}}</td>
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>
+            <img src="{{product.image}}" width="250" height="100">
+        </td>
+        <td>
+            <a [routerLink]="['/cart', { id:product._id }]">Buy Now</a>
+        </td>
+    </tr>
+</table>
+</div>
